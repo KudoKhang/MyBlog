@@ -99,6 +99,20 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: Chic
 
+# Mermaid diagrams
+mermaid:
+  enable: true
+  version: "11.12.0"
+  options:
+    theme: default
+    themeVariables:
+      primaryColor: "#ff6b6b"
+      primaryTextColor: "#333"
+      primaryBorderColor: "#ff6b6b"
+      lineColor: "#333"
+      secondaryColor: "#4ecdc4"
+      tertiaryColor: "#45b7d1"
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
