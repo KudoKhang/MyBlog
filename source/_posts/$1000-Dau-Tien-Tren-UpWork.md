@@ -16,7 +16,7 @@ Nhân dịp nhận được món quà từ client, mình muốn viết bài chia
 
 Giờ thì vào bài thôi 🚀
 
-## Chuẩn bị
+## I. Chuẩn bị
 
 Có lẽ mình biết đến upwork và freelance thông qua bài viết [Kí sự Freelancer ở Upwork](https://viblo.asia/p/ki-su-freelancer-o-upwork-3RlL5YxwLbB) từ năm 2022 của tác giả Thanh Le (một bài viết hay với góc nhìn chân thật của 1 freelancer vất vả để tìm được công việc đầu tiên được thể hiện bởi 1 lối hành văn rất bánh cuốnn). Còn việc mình bắt đầu mò mẫm lên nền tảng đó là đầu năm nay - trong thời gian vừa nghỉ ở cty thứ nhất chờ onboard cty thứ hai, trước khi bắt đầu mình đã tìm kiếm các bài viết, video chia sẻ kinh nghiệm kiếm job trên Upwork, bằng chứng cho sự nghiêm túc tìm kiếm đó là mình đã xem hết video 7 tiếng này (có tua đôi chút nhưng thật sự là mình đã xem hết video đó) 🙂‍↕️
 
@@ -33,7 +33,7 @@ Sau phần chuẩn bị này là chúng ta có thể lả lướt trên upwork �
 ![gif lướt lướt](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2ViZWhoNzNhZjc2bWw2dGJ4aTRuczh2MmlxMzBvZ2dlenFkcWdkbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bAplZhiLAsNnG/giphy.gif)
 
 
-## Công việc đầu tiên
+## II. Công việc đầu tiên
 
 Dù đã chuẩn bị tâm thế là sẽ cần thời gian để có được công việc đầu tiên rồi nhưng không thể tránh khỏi tâm lý háo hức, hi vọng ban đầu, cứ chốc chốc lại mở app lên xem có ai phản hồi proposal không (mặc dù app đã bật thông báo ?!?), ngó hết job này tới job nọ xem có cái nào phù hợp không để lưu lại. Nếu bạn hỏi tại sao phải lưu mà không apply luôn thì đó là do mình theo chiến lược của các youtuber bày:
 
@@ -43,7 +43,7 @@ Dù đã chuẩn bị tâm thế là sẽ cần thời gian để có được c
 
 Sau tầm 2-3 ngày mình may mắn nhận được 1 phản hồi từ 1 job khá phù hợp, nhưng cũng phải sau khoảng 3-4 tuần mới chốt được dự án, lý do là client hình như ít vào check upwork, và mình đòi $1500 cho dự án so với budget họ đề ra ban đầu là $1000 (nếu bạn có hỏi tại sao ban đầu mục tiêu là có việc là được bao nhiêu cũng nhận mà giờ lại đòi gấp rưỡi budget người ta thì nguyên nhân là do tính chất dự án khá khó và cần thời gian để nghiên cứu và triển khai). Cuối cùng, để có job đầu tiên mình chấp nhận $1000 như họ đề xuất.
 
-## Có job rồi, code thôi!!!
+## III. Có job rồi, code thôi!!!
 
 Nói sơ qua về cái job này:
 - Client: US, huấn luận viên bóng đá, non-tech nhưng có mindset của 1 engineer, tính cách khá rạch ròi, tử tế và hào phóng.
@@ -105,7 +105,7 @@ Chắc là vì cảm động trước tinh thần tận tâm của mình nên kh
 ![Wukong](https://i.postimg.cc/gJ2SsbjH/laptop-wk.jpg)
 
 
-## Kết
+## IV. Kết
 Bài cũng đã dài, mình xin gác phím ở đây (có mấy dòng này mà mình phải viết 2-3 tuần mới xong 🥹). Mặc dù công việc khá bận nhưng mình vẫn cố gắng hoàn thành bài viết, hi vọng nó sẽ mang lại chút giá trị gì đó cho người đọc 🙏.
 
 Nhân tiện, mình cũng đang open cho cho các job freelance, nên nếu có quý khách hàng nào muốn thuê mướn mình thì *do not hesitate to contect me 🤙* nha (giai đoạn này đang ôn thi B1 nên chèn tí English zô cho sang 🐥).

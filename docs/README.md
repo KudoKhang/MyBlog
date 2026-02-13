@@ -7,6 +7,7 @@ Tại đây bạn sẽ tìm thấy các hướng dẫn chi tiết về:
 1.  **[Cấu trúc dự án (Project Structure)](./PROJECT_STRUCTURE.md)**: Giải thích các thư mục và file quan trọng.
 2.  **[Viết bài mới (Writing Posts)](./WRITING_POSTS.md)**: Hướng dẫn tạo bài viết, soạn thảo nội dung Markdown, và xem trước.
 3.  **[Git & Deploy](./GIT_AND_DEPLOY.md)**: Quy trình lưu trữ source code lên Git và deploy website lên GitHub Pages.
+4.  **[UX Enhancements](./UX_ENHANCEMENTS.md)**: Tài liệu về các tính năng UX đã được cải tiến (Reading Progress, Copy Code, Back to Top...).
 
 ## Các lệnh thường dùng
 

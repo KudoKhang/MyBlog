@@ -4,9 +4,9 @@ date: 2023-05-29 21:36:49
 tags: Technical
 ---
 
-# I. Giới thiệu
+## I. Giới thiệu
 
-Còn nhớ hồi mình mới học về Machine Learning (cách đây khoảng 2-3 năm) các bài hướng dẫn trên Blog, YouTube, GitHub đều xài TensorFlow. PyTorch là một FrameWork được Facebook phát triển, tuy ra đời sau nhưng càng ngày càng nhận được sự quan tâm và sử dụng của cộng đồng, lý giải cho sự phát triển nhanh chóng của PyTorch có thể đến từ việc nó xây dựng trên Python (mà Python lại là ngôn ngữ chính được sử dụng trong các task về Machine Learning / Deep Learning), hiệu suất, tính tinh hoạt, tận dụng được việc tính toán song song trên nhiều GPU… 
+Còn nhớ hồi mình mới học về Machine Learning (cách đây khoảng 2-3 năm) các bài hướng dẫn trên Blog, YouTube, GitHub đều xài TensorFlow. PyTorch là một FrameWork được Facebook phát triển, tuy ra đời sau nhưng càng ngày càng nhận được sự quan tâm và sử dụng của cộng đồng, lý giải cho sự phát triển nhanh chóng của PyTorch có thể đến từ việc nó xây dựng trên Python (mà Python lại là ngôn ngữ chính được sử dụng trong các task về Machine Learning / Deep Learning), hiệu suất, tính tinh hoạt, tận dụng được việc tính toán song song trên nhiều GPU…
 
 Một thống kê trên HuggingFace về mức độ phổ biến giữa 2 Framework, có đến 92% model sử dụng PyTorch để phát triển mô hình từ đó có thể thấy được mức độ phổ biến của PyTorch là như thế nào.
 
@@ -27,7 +27,7 @@ Tuy nhiên vì mô hình của mình khá nhỏ và đơn giản nên mình mu�
 
 Chi tiết thực hiện sẽ được trình bày trong mục 2
 
-# II. Thực nghiệm
+## II. Thực nghiệm
 
 Mô hình TensorFlow của mình ở đây có nhiệm vụ phân loại 31 ký tự trong bảng chữ cái, kiến trúc model sẽ như sau
 
@@ -134,7 +134,7 @@ torch_model = Build_Model_PyTorch()
 for i, (name, param) in enumerate(torch_model.named_parameters()):
         if "weight" in name:
             w = torch.from_numpy(keras_weights[i])
-							
+
 			# Convert dimensions
             if w.dim() == 3:
                 w = w.t()
@@ -156,17 +156,17 @@ Ví dụ với sample bên dưới, input cho model TF là [1, 28, 28, 1] thì q
 
 ![Samples](https://i.imgur.com/2FBZDsK.png)
 
-# III. Kết quả
+## III. Kết quả
 
 Từ trên xuống dưới lần lượt là kết quả dự đoán của mô hình TF và PyTorch.
 
 ![Compare TF with PyTorch](https://i.imgur.com/hU8J4p3.png)
 
-Hy vọng hướng dẫn này sẽ hữu ích cho những bạn nào cần thực hiện convert model như mình. 
+Hy vọng hướng dẫn này sẽ hữu ích cho những bạn nào cần thực hiện convert model như mình.
 
 Bái bai và hẹn gặp lại trong những bài viết tiếp theo 🫵
 
-# IV. References
+## IV. References
 
 - [Code in GitHub](https://github.com/KudoKhang/CodeInBlog/tree/main/TF2Torch)
 - [TensorFlow to ONNX](https://github.com/onnx/tensorflow-onnx)

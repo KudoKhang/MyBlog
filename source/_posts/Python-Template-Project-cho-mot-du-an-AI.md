@@ -4,13 +4,13 @@ date: 2023-06-03 21:11:50
 tags: Technical
 ---
 
-# I. Mở đầu
+## I. Mở đầu
 
 Chúng ta thường nghe việc tổ chức source code, viết code sạch code đẹp (clean code) là một việc rất quan trọng trong công việc viết phần mềm, một source code được tổ chức tốt, code tuân theo convention sẽ giúp cho các lập trình viên có thể phối hợp phát triển dự án một cách dễ dàng hơn, giảm thiểu conflict, dễ dàng mở rộng thêm các tính năng mới và bảo trì sau này.
 
 Trong bài viết này mình xin giới thiệu template cho một AI project mà mình đang áp dụng cho những dự án gần đây.
 
-# II. Cấu trúc dự án
+## II. Cấu trúc dự án
 
 ```bash
 ├── checkpoints
@@ -81,7 +81,7 @@ Dưới đây sẽ là giải thích chức năng cho từng file và module
 
 Trên đây là template cho một AI module project mà mình đang áp dụng, tùy vào tính chất dự án mà bạn đang thực hiện, có thể thêm hoặc bớt để cho phù hợp nhất. Nếu bạn có ideas gì để giúp template này hoàn thiện hơn, rất welcome các bạn contributing để repo hoàn hoàn thiện hơn 🙆🏻‍♂️
 
-# III. References
+## III. References
 
 - [python-project-template](https://github.com/KudoKhang/python-project-template)
 - [facetorch](https://github.com/tomas-gajarsky/facetorch) (template mình xây dựng học hỏi từ repo này mọi người nhé)

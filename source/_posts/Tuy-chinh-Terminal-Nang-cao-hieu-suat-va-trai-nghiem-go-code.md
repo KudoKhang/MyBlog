@@ -6,14 +6,14 @@ tags:
     - Technical
 ---
 
-# I. Mở đầu
+## I. Mở đầu
 
 Là một lập trình viên, terminal chắc chắn là một công cụ mà bạn sẽ phải thao tác làm việc với nó mỗi ngày, tuy nhiên với terminal mặc định trông nó sẽ khá kùi pắp, giao diện xấu và chức năng hạn chế. Trong bài viết này mình sẽ hướng dẫn các bạn cách:
 
 - Tùy biến terminal để nó trông màu mè, đẹp đẽ hơn.
 - Cung cấp một số tips giúp nâng cao hiệu suất khi làm việc với terminal.
 
-# II. Tùy chỉnh Terminal
+## II. Tùy chỉnh Terminal
 
 Như đã nói từ đầu, terminal mặc định sẽ rất hạn chế chức năng và khả năng tùy chỉnh từ người dùng vì vậy việc đầu tiên chúng ta cần làm là thay ngay một terminal mới 🫵
 
@@ -29,7 +29,7 @@ Terminal mới mình chọn ở đây là `Tabby`, vì một số lý do sau:
 
 Sau khi cài đặt, terminal của chúng ta chưa thể màu mè được như hình minh họa từ trang chủ Tabby đâu, để được như vậy chúng ta cần cài thêm ZSH thay cho Shell mặc định và themes, plugins cho nó nữa.
 
-## Bước 1: Cài đặt ZSH
+### Bước 1: Cài đặt ZSH
 
 Trong bài này mình sẽ hướng dẫn cài đặt trên Ubuntu, những hệ điều hành khác các bạn hoàn toàn có thể làm tương tự nhé.
 
@@ -52,7 +52,7 @@ Sau khi đổi xong các bạn cần restart terminal để thay đổi được
 
 Tại đây chúng ta chọn option 0 để tạo một file config rỗng vì phần config chúng ta sẽ dùng của oh-my-zsh framework sẽ được cài đặt ngay sau đây
 
-## Bước 2: Cài đặt Oh-my-zsh framework
+### Bước 2: Cài đặt Oh-my-zsh framework
 
 Oh-my-zsh là một framework mở rộng cho Zsh, nó cung cấp một bộ sưu tập các tính năng, themes và plugins để tùy chỉnh và nâng cao trải nghiệm sử dụng Zsh
 
@@ -70,7 +70,7 @@ Oh-my-zsh sẽ sử dụng file config `.zshrc` đã được khởi tạo trư�
 
 Tới đây terminal của chúng ta đã trông màu mè hơn rất nhiều tuy nhiên vẫn chưa hết, chúng ta có thể nâng cao trải nghiệm với việc thay đổi themes và cài đặt thêm plugins
 
-## Bước 3: Cài đặt themes
+### Bước 3: Cài đặt themes
 
 Themes mặc định của Oh-my-zsh là `robbyrussell` vì giao diện nó khá sơ sài nên chúng ta cần đổi qua theme màu mè khác để nó có thể hiển thị thêm nhiều thông tin.
 
@@ -103,7 +103,7 @@ Khi theme `powerlevel10k` được áp dụng thành công, chúng ta sẽ tiế
 
 Các bạn có thể thử nghiệm thêm các theme khác [tại đây](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes).
 
-## Bước 4: Cài đặt plugins
+### Bước 4: Cài đặt plugins
 
 ZSH sẽ giúp việc thao tác với terminal thuận tiện hơn với kho plugins đa dạng. Sau đây mình sẽ thực hiện cài 2 plugins mà mình nghĩ bắt buộc phải có cho terminal.
 
@@ -162,9 +162,9 @@ source ~/.zshrc
 
 Như vậy là bạn đã biết cách cài một plugin cho ZSH, kho plugins cho ZSH rất nhiều, bạn có thể xem và cài thử [tại đây](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins).
 
-# III. Nâng cao hiệu suất làm việc với shortcut và alias
+## III. Nâng cao hiệu suất làm việc với shortcut và alias
 
-## Shortcut cho Terminal
+### Shortcut cho Terminal
 
 Phím tắt giúp bạn thực hiện các thao tác một cách nhanh chóng và hiệu quả hơn so với việc sử dụng chuột hoặc thao tác bằng cách thủ công. Điều này giảm thời gian mất khi bạn phải di chuyển chuột và thực hiện các thao tác trên giao diện người dùng.
 
@@ -181,9 +181,9 @@ Làm việc với terminal cũng vậy, việc biết và sử dụng shortcut s
 
 Các bạn có thể tìm hiểu thêm các Shortcut [tại đây](https://itsfoss.com/linux-terminal-shortcuts/) để múa cho ngầu nhé.
 
-## Alias
+### Alias
 
-Alias trong terminal là một cách để tạo ra shortcut cho những câu lệnh mà chúng ta thường dùng, từ đó rút ngắn thời gian gõ, nâng cao hiệu suất làm việc. 
+Alias trong terminal là một cách để tạo ra shortcut cho những câu lệnh mà chúng ta thường dùng, từ đó rút ngắn thời gian gõ, nâng cao hiệu suất làm việc.
 
 Để thêm alias vào hệ thống chúng ta sẽ mở tệp cấu hình hệ thống `~/.zshrc` lên và tiến hành thêm vào cuối file như sau:
 
@@ -247,7 +247,7 @@ Những thiết lập alias sẽ chỉ hoạt động trên hệ thống của b
 
 **Việc đặt tên**:
 
-Việc đặt tên nên mang ý nghĩa gợi nhớ, liệu bạn có muốn đặt alias cho lệnh `git status` là `hello everybody, sau khi tôi gõ dòng này trạng thái git sẽ xuất hiện trên terminal nè` hay `a`, `b`, `c`... chẳng hạn. Nếu bạn đặt bằng 1 chữ cái như trên thì tin tốt là bạn có thể giảm thời gian gõ từ 10 ký tự `git status` về 1, tuy nhiên khi số lượng alias tăng lên thì việc nhớ tên alias sẽ trở thành một vấn đề khó khăn.
+Việc đặt tên nên mang ý nghĩa gợi nhớ, liệu bạn có muốn đặt alias cho lệnh `git status` là `hello everybody, sau khi mình gõ dòng này trạng thái git sẽ xuất hiện trên terminal nè` hay `a`, `b`, `c`... chẳng hạn. Nếu bạn đặt bằng 1 chữ cái như trên thì tin tốt là bạn có thể giảm thời gian gõ từ 10 ký tự `git status` về 1, tuy nhiên khi số lượng alias tăng lên thì việc nhớ tên alias sẽ trở thành một vấn đề khó khăn.
 
 Còn nếu bạn chọn cách đặt tên như cách đầu tiên thì... well, mình không có ý kiến gì cả, chỉ muốn khuyên bạn mỗi khi dùng hãy cẩn thận đừng để đồng nghiệp với sếp thấy bởi vì họ sẽ bắt đầu kì thị bạn đấy 🤧
 
@@ -281,7 +281,7 @@ Và cuối cùng, nếu muốn xóa alias chùng ta sẽ sử dụng câu lệnh
 unalias alias1 alias2 alias3
 ```
 
-# IV. Tổng kết
+## IV. Tổng kết
 
 Qua bài viết này mình đã giới thiệu tới các bạn cách để màu mè hóa quy trình làm việc với terminal, hi vọng với những chia sẻ đó sẽ gíúp việc múa code của bạn thanh thoát và điệu nghệ hơn, từ đó đồng nghiệp kính nể, sếp càng iu quý, công ty tăng lương, sớm có tiền mua nhà, cưới vợ, sống một đời viên mãn 🫡.
 

@@ -1,24 +1,40 @@
 ---
-title: 
+title:
 date: 2022-08-30 23:48:36
 ---
 
 <a href="#"><img width="100%" height="auto" src="https://i.imgur.com/Bb1Rcnh.png" height="100px"/></a>
 
 
-<h3 align="center">
+<!-- <h3 align="center">
     <p><img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px">I'm on my way to becoming a AI engineer !?</p>
-</h3>
+</h3> -->
 
 
 ## **I**. 🙋‍♂️ About Me
 
+I’m an AI Engineer with 5+ years of experience building production-grade AI systems, specializing in:
+- 🔍 Computer Vision (Detection, Tracking, OCR, Video Analytics)
 
+- 🤖 Deep Learning & LLM integration
+
+- ⚙️ Backend Systems (Python, FastAPI, Microservices)
+
+- ☁️ Cloud deployment (Docker, AWS)
+
+- 📊 Scalable data pipelines & real-time processing (Kafka)
+
+I don’t just train models —
+I build end-to-end AI systems from research → deployment → monitoring → scaling.
+
+📩 Let’s collaborate: hnkhang.dev@gmail.com
+
+<!--
 - 🌱 I’m currently working **Machine Learning, Deep Learning & Computer Vision**
 
 - 📫 How to reach me **hnkhang.dev@gmail.com**
 
-- ⚡ Fun fact **I love to reads book, listen jazz music and play Lien Quan mobile**
+- ⚡ Fun fact **I love to reads book, listen jazz music and play Lien Quan mobile** -->
 
 <div style="text-align: center">
 <a href="https://github.com/Meghna-DAS/github-profile-views-counter">

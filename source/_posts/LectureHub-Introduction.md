@@ -8,9 +8,9 @@ categories:
     - LectureHub
 ---
 
-## 1. Mở đầu
+## I. Mở đầu
 
-Ngoài là một software engineer tôi còn có nghề tay trái dạy lập trình cho các bạn nhỏ cấp 1, trong quá trình giảng dạy tôi thường phải tìm bài tập cho các bạn nhỏ luyện tập, hai nguồn tài liệu tôi thường tham khảo nhất đó là [codemath][codemath_url] và [lqdoj][lqdoj_url] (cả hai đều là hệ thống ra đề và chấm bài online được xây dựng dựa trên mã nguồn mở DMOJ). Nói là code cấp 1 nhưng không có nghĩa là bài nào cũng dễ, phải thừa nhận có khá nhiều bài toán hóc búa khiến tôi phải mất rất nhiều thời gian để tìm ra lời giải (cũng có nhiều khi tìm mãi mà không ra 😅). Nếu đổi lại vị trí của người giải bài là một học sinh cấp 1 thì rất có thể có gặp các tình huống này:
+Ngoài là một software engineer mình còn có nghề tay trái dạy lập trình cho các bạn nhỏ cấp 1, trong quá trình giảng dạy mình thường phải tìm bài tập cho các bạn nhỏ luyện tập, hai nguồn tài liệu mình thường tham khảo nhất đó là [codemath][codemath_url] và [lqdoj][lqdoj_url] (cả hai đều là hệ thống ra đề và chấm bài online được xây dựng dựa trên mã nguồn mở DMOJ). Nói là code cấp 1 nhưng không có nghĩa là bài nào cũng dễ, phải thừa nhận có khá nhiều bài toán hóc búa khiến mình phải mất rất nhiều thời gian để tìm ra lời giải (cũng có nhiều khi tìm mãi mà không ra 😅). Nếu đổi lại vị trí của người giải bài là một học sinh cấp 1 thì rất có thể có gặp các tình huống này:
 
 - Làm mãi không AC được một bài --> Chán nản, từ bỏ luyện tập.
 
@@ -20,9 +20,9 @@ Ngoài là một software engineer tôi còn có nghề tay trái dạy lập tr
 
 Không chỉ học sinh gặp khó khăn, mà ngay cả giáo viên khi chuẩn bị bài giảng, hướng dẫn học sinh cũng mất khá nhiều thời gian để làm bài, viết lời giải và minh họa phù hợp.
 
-Đó chính là **nỗi đau thực tế** mà tôi muốn giải quyết bằng **LectureHub**.
+Đó chính là **nỗi đau thực tế** mà mình muốn giải quyết bằng **LectureHub**.
 
-## 2. LectureHub là gì?
+## II. LectureHub là gì?
 
 ![lecturehub homepage][lecturehub_homepage]
 <center><i>Giao diện trang web</i></center>
@@ -38,17 +38,17 @@ Không chỉ học sinh gặp khó khăn, mà ngay cả giáo viên khi chuẩn 
 
 LectureHub tự hào là nền tảng đầu tiên đi đầu trong việc xây dựng kho bài giải cho các bài toán tin ở Việt Nam.
 
-## 3. Vì sao tôi xây dựng LectureHub?
+## III. Vì sao mình xây dựng LectureHub?
 
 ![Developing][meme_dog_typing]
 
-Tôi từng là một người học đến người dạy, trong suốt quá trình đó, tôi nhận thấy:
+Mình từng là một người học đến người dạy, trong suốt quá trình đó, mình nhận thấy:
 
 - Việc học tin học thường tốn nhiều thời gian **tìm kiếm nguồn tài liệu** đáng tin cậy.
 
 - Các nền tảng như Codemath, LQDOJ… tập trung vào **ra đề & chấm bài**, nhưng lại thiếu một **hệ sinh thái tra cứu và học tập liền mạch**.
 
-[LectureHub][lecturehub_url] ra đời từ nhu cầu cá nhân đó. Nhưng đồng thời, dự án này cũng là cơ hội để tôi:
+[LectureHub][lecturehub_url] ra đời từ nhu cầu cá nhân đó. Nhưng đồng thời, dự án này cũng là cơ hội để mình:
 
 - Rèn luyện và showcase những kỹ năng phát triển một sản phầm phần mềm hoàn chỉnh, bao gồm:
   - Phân tích nhu cầu và thiết kế hệ thống.
@@ -60,7 +60,7 @@ Tôi từng là một người học đến người dạy, trong suốt quá tr
 
 - Đóng góp giá trị cho cộng đồng học sinh, giáo viên và developer.
 
-## 4. Giá trị cốt lõi LectureHub mang lại
+## IV. Giá trị cốt lõi LectureHub mang lại
 
 - 👩‍🎓 **Với học sinh**: tiết kiệm thời gian tìm kiếm, học thêm nhiều cách giải, dễ dàng so sánh các tư duy.
 
@@ -68,9 +68,9 @@ Tôi từng là một người học đến người dạy, trong suốt quá tr
 
 - 👨‍💻 **Với developer**: thông qua series blog, có thể học hỏi về **system design, backend, cloud, AI** từ một dự án thực tế.
 
-## 5. Roadmap phát triển
+## V. Roadmap phát triển
 
-[LectureHub][lecturehub_url] không chỉ dừng lại ở phiên bản MVP. Tôi đã vạch ra một lộ trình như sau:
+[LectureHub][lecturehub_url] không chỉ dừng lại ở phiên bản MVP. Mình đã vạch ra một lộ trình như sau:
 
 - **Giai đoạn 1**: Xây dựng kho code bài giải.
 
@@ -80,13 +80,13 @@ Tôi từng là một người học đến người dạy, trong suốt quá tr
 
 - **Giai đoạn 4**: Mở rộng thành **cộng đồng chia sẻ**: học sinh, giáo viên, developer có thể cùng nhau đóng góp.
 
-## 6. Series blog này có gì?
+## VI. Series blog này có gì?
 
-Song song với việc phát triển [LectureHub][lecturehub_url], tôi sẽ viết một **series blog** để chia sẻ hành trình xây dựng:
+Song song với việc phát triển [LectureHub][lecturehub_url], mình sẽ viết một **series blog** để chia sẻ hành trình xây dựng:
 
 1. **Thiết kế hệ thống** – Kiến trúc tổng thể của LectureHub. Bao gồm: Repo Design, Database Design, Architecture Design
 
-2. **Deployment** – Ứng dụng sẽ được triển khai trên AWS cloud, vì vậy tôi cũng chia sẻ thêm về các AWS Service phổ biến cho việc xây dựng một website.
+2. **Deployment** – Ứng dụng sẽ được triển khai trên AWS cloud, vì vậy mình cũng chia sẻ thêm về các AWS Service phổ biến cho việc xây dựng một website.
 
 3. **Ứng dụng AI** – Tích hợp RAG, chatbot hỗ trợ giải thích bài toán.
 
@@ -94,11 +94,11 @@ Song song với việc phát triển [LectureHub][lecturehub_url], tôi sẽ vi�
 
 Mỗi bài viết sẽ hướng tới **note lại các kiến thức kỹ thuật**, vừa mang lại **giá trị học tập cho cộng đồng**.
 
-## 7. Lời kết
+## VII. Lời kết
 
-[LectureHub][lecturehub_url] là dự án xuất phát từ nhu cầu cá nhân, nhưng tôi tin rằng nó có thể mang lại giá trị lớn cho cộng đồng học sinh, giáo viên, và những ai yêu thích tin học.
+[LectureHub][lecturehub_url] là dự án xuất phát từ nhu cầu cá nhân, nhưng mình tin rằng nó có thể mang lại giá trị lớn cho cộng đồng học sinh, giáo viên, và những ai yêu thích tin học.
 
-Series blog này sẽ là hành trình từ **ý tưởng → thiết kế → code → deploy → tích hợp với công nghệ AI**.  
+Series blog này sẽ là hành trình từ **ý tưởng → thiết kế → code → deploy → tích hợp với công nghệ AI**.
 Nếu bạn quan tâm đến backend, cloud, hay AI trong giáo dục, hãy theo dõi để cùng khám phá.
 
 👉 Cùng đón chờ bài viết đầu tiên về series này nhé: **LectureHub Overview – Thiết kế hệ thống**.
@@ -112,7 +112,7 @@ Nếu bạn quan tâm đến backend, cloud, hay AI trong giáo dục, hãy theo
 ![Meme][meme_waitting]
 <center><i>Please waitting...</i></center>
 
-## 8. References
+## VIII. References
 
 - Website: https://www.lecturehub.tech
 - Github: https://github.com/LectureHubTeam
