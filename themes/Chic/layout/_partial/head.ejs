@@ -64,6 +64,9 @@ var ogUrl = full_url_for(page.path);
     <link rel="icon" href="<%- url_for(theme.favicon) %>">
 <% } %>
 
+<%# RSS feed autodiscovery %>
+<link rel="alternate" type="application/atom+xml" title="<%= config.title %>" href="<%- full_url_for('/atom.xml') %>">
+
 <%# css list %>
 <% if (theme.stylesheets !== undefined && theme.stylesheets.length > 0) { %>
     <!-- stylesheets list from _config.yml -->
