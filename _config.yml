@@ -117,4 +117,4 @@ mermaid:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/KudoKhang/kudokhang.github.io.git
+  repo: git@github-personal:KudoKhang/kudokhang.github.io.git
