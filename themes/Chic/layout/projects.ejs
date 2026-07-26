@@ -1,0 +1,52 @@
+<%
+var kindOrder = ['research', 'application', 'engineering', 'education'];
+var kindLabels = {research: 'Research', application: 'Application', engineering: 'Engineering', education: 'Education'};
+var kinds = kindOrder.filter(function(k){
+    return site.data.projects.some(function(project){ return project.kind.indexOf(k) !== -1; });
+});
+%>
+<div class="container">
+<article class="post-wrap page projects-layout">
+<section class="post-content">
+<div class="projects-page">
+<section class="projects-hero project-reveal">
+<p class="about-kicker"><%= page.kicker %></p>
+<h1><%= page.heading %></h1>
+<p><%= page.intro %></p>
+</section>
+<div class="project-filters project-reveal" aria-label="Project filters">
+<button class="project-filter is-active" type="button" data-project-filter="all">All Projects</button>
+<% kinds.forEach(function(k){ %>
+<button class="project-filter" type="button" data-project-filter="<%= k %>"><%= kindLabels[k] || k %></button>
+<% }); %>
+</div>
+<section class="project-showcase" aria-label="Project list">
+<% site.data.projects.forEach(function(project){ %>
+<%- partial('_partial/project-card', {project: project}) %>
+<% }); %>
+</section>
+<div class="project-modal" id="project-modal" aria-hidden="true">
+<div class="project-modal-backdrop" data-project-modal-close></div>
+<section class="project-modal-panel" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+<button class="project-modal-close" type="button" data-project-modal-close aria-label="Close project details">×</button>
+<p class="project-modal-kicker" id="project-modal-kicker"></p>
+<h2 id="project-modal-title"></h2>
+<p class="project-modal-summary" id="project-modal-summary"></p>
+<div class="project-modal-meta" id="project-modal-meta"></div>
+<div class="project-modal-grid">
+<div>
+<h3>Highlights</h3>
+<ul class="project-modal-list" id="project-modal-highlights"></ul>
+</div>
+<div>
+<h3>Stack</h3>
+<div class="project-modal-stack" id="project-modal-stack"></div>
+<a class="project-modal-link" id="project-modal-link" href="#" target="_blank" rel="noopener">Open link</a>
+</div>
+</div>
+</section>
+</div>
+</div>
+</section>
+</article>
+</div>

@@ -1,0 +1,40 @@
+<%
+var kindAttr = project.kind.join(' ');
+var modalMeta = [project.badges[0].label, project.org, project.date];
+var modalData = {
+    title: project.title,
+    meta: modalMeta,
+    summary: project.summary,
+    highlights: project.highlights,
+    stack: project.stack,
+    link: project.link || '',
+    linkText: project.linkText || ''
+};
+%>
+<article class="showcase-card project-reveal" data-project-kind="<%= kindAttr %>">
+<%- partial('_partial/project-media', {project: project}) %>
+<div class="showcase-body">
+<div class="showcase-topline">
+<div class="showcase-badges">
+<% project.badges.forEach(function(badge){ %>
+<span class="badge badge-<%= badge.type %>"><%= badge.label %></span>
+<% }); %>
+</div>
+<% if (project.link) { %>
+<a class="showcase-icon-link" href="<%= project.link %>" target="_blank" rel="noopener" aria-label="Open <%= project.title %>">🚀</a>
+<% } %>
+</div>
+<h2><%- project.title %></h2>
+<p><%= project.summary %></p>
+<div class="showcase-meta">
+<span><%= project.date %></span>
+<span><%= project.org %></span>
+</div>
+<div class="showcase-stack">
+<% project.stack.forEach(function(item){ %>
+<span><%= item %></span>
+<% }); %>
+</div>
+</div>
+<script type="application/json" class="project-data"><%- JSON.stringify(modalData) %></script>
+</article>

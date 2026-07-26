@@ -1,0 +1,58 @@
+<%
+var initials = project.title.split(' ').filter(function(w){ return w.length; }).slice(0, 2).map(function(w){ return w[0]; }).join('').toUpperCase();
+%>
+<div class="showcase-media media-<%= project.media || 'default' %>">
+<% if (project.cover) { %>
+    <img src="<%- url_for(project.cover) %>" alt="<%= project.title %>" loading="lazy">
+<% } else if (project.media === 'video') { %>
+    <div class="camera-frame frame-left"></div>
+    <div class="camera-frame frame-right"></div>
+    <div class="tracking-box"></div>
+    <div class="media-path"></div>
+<% } else if (project.media === 'lecturehub') { %>
+    <div class="media-window">
+    <span></span><span></span><span></span>
+    </div>
+    <div class="media-node node-a">OJ</div>
+    <div class="media-node node-b">Search</div>
+    <div class="media-node node-c">Solutions</div>
+<% } else if (project.media === 'tasks') { %>
+    <div class="task-panel panel-main"></div>
+    <div class="task-panel panel-worker"></div>
+    <div class="task-gpu">GPU</div>
+    <div class="task-pulse"></div>
+<% } else if (project.media === 'green') { %>
+    <div class="template-frame"></div>
+    <div class="subject-cutout"></div>
+    <div class="green-screen"></div>
+<% } else if (project.media === 'rag') { %>
+    <div class="rag-core">RAG</div>
+    <div class="rag-doc doc-one">Problem</div>
+    <div class="rag-doc doc-two">Code</div>
+    <div class="rag-doc doc-three">Solution</div>
+<% } else if (project.media === 'agent') { %>
+    <div class="agent-terminal"></div>
+    <div class="agent-rank">#1</div>
+    <div class="agent-line line-one"></div>
+    <div class="agent-line line-two"></div>
+<% } else if (project.media === 'education') { %>
+    <div class="lesson-card lesson-one">Scratch</div>
+    <div class="lesson-card lesson-two">Python</div>
+    <div class="trophy-mark">A+</div>
+<% } else if (project.media === 'email') { %>
+    <div class="mail-card mail-one"></div>
+    <div class="mail-card mail-two"></div>
+    <div class="mail-server">API</div>
+<% } else if (project.media === 'plate') { %>
+    <div class="factory-line"></div>
+    <div class="plate-card">51A-2022</div>
+    <div class="scan-line"></div>
+<% } else if (project.media === 'classifier') { %>
+    <div class="orange-item orange-one"></div>
+    <div class="orange-item orange-two"></div>
+    <div class="robot-arm arm-left"></div>
+    <div class="robot-arm arm-right"></div>
+<% } else { %>
+    <div class="media-fallback"><%= initials %></div>
+<% } %>
+</div>
