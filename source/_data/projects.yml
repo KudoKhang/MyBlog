@@ -1,0 +1,193 @@
+- id: soccer-match-analysis
+  title: Soccer Match Analysis
+  kind: [application, engineering]
+  badges:
+    - {type: application, label: Application}
+    - {type: featured, label: Featured}
+  org: UpWork freelance
+  date: Apr 2025 - Jun 2025
+  summary: Cross-platform desktop application for football tactical analysis, built with video stitching, player tracking, and intelligent auto-focus.
+  highlights:
+    - Built a robust video stitching pipeline with camera calibration and lens distortion correction for wide-angle footage.
+    - Fine-tuned an object detection model and clustering logic to identify player groups and simulate camera-operator style focus.
+    - Delivered a complete GUI application across operating systems, including product packaging and client handoff.
+    - Managed the full freelance lifecycle and reached the first $1,000 UpWork milestone.
+  stack: [Computer Vision, Video Stitching, Camera Calibration, Object Detection, GUI]
+  link: https://www.youtube.com/watch?v=ZNacjRtL9JQ
+  linkText: Watch demo
+  cover:
+  media: video
+
+- id: lecturehub
+  title: LectureHub
+  kind: [application, engineering]
+  badges:
+    - {type: application, label: Application}
+    - {type: featured, label: Featured}
+  org: Personal project
+  date: Jun 2025 - Present
+  summary: Full-stack web platform for looking up competitive programming solutions from multiple online judges, deployed as a production-ready product.
+  highlights:
+    - Designed and implemented the full web application with a structured, production-oriented codebase.
+    - Built CI/CD and deployed the system on AWS with self-managed cloud configuration.
+    - Owned product planning, implementation, deployment, and iteration independently.
+  stack: [Full-stack, AWS, CI/CD, Product Engineering, Competitive Programming]
+  link: https://www.lecturehub.tech/
+  linkText: Open website
+  cover:
+  media: lecturehub
+
+- id: api-long-running-tasks
+  title: API Services for Long-Running Tasks
+  kind: [application, engineering]
+  badges:
+    - {type: engineering, label: Engineering}
+    - {type: application, label: Application}
+  org: FTECH
+  date: Sep 2023 - Jan 2025
+  summary: Microservices API platform for resource-intensive video generation tasks with immediate responses, fault tolerance, monitoring, and GPU cost optimization.
+  highlights:
+    - Designed a scalable microservices architecture for long-running CPU/GPU/memory-heavy workloads.
+    - Added CI/CD, monitoring, alerting, and error tracking with Prometheus, Grafana, and Sentry.
+    - Optimized GPU usage with sleep/wake-up behavior and in-memory caching for intermittent workloads.
+    - Improved fault tolerance and operational visibility for production processing.
+  stack: [Microservices, GPU, CI/CD, Prometheus, Grafana, Sentry]
+  link:
+  linkText:
+  cover:
+  media: tasks
+
+- id: image-video-merging
+  title: Automatic Image and Video Merging
+  kind: [application, research]
+  badges:
+    - {type: application, label: Application}
+    - {type: research, label: Research}
+  org: FTECH
+  date: Sep 2023 - Jan 2025
+  summary: Deep learning and image processing module for automatically merging images and videos into templates, including green-screen video workflows.
+  highlights:
+    - Engineered a high-performance module for green-screen video merging with strong speed and resource constraints.
+    - Managed deployment strategy with rolling updates and production monitoring.
+    - Tracked model performance, CPU/GPU utilization, and availability.
+    - Mentored a junior engineer on Git, Docker, performance reporting, and delivery practice.
+  stack: [Deep Learning, Image Processing, MLOps, Docker, Monitoring]
+  link:
+  linkText:
+  cover:
+  media: green
+
+- id: qa-chatbot
+  title: Advanced Q&A Chatbot
+  kind: [application, engineering]
+  badges:
+    - {type: application, label: Application}
+    - {type: engineering, label: Engineering}
+  org: LectureHub feature
+  date: PoC
+  summary: RAG-based chatbot for in-depth conversational queries about programming problems, using a pre-computed vector database to reduce hallucinations.
+  highlights:
+    - Designed a complete RAG pipeline backed by a pre-computed vector database.
+    - Improved retrieval latency and answer precision for complex problem-specific questions.
+    - Reduced hallucinations compared with a non-RAG baseline by grounding answers in curated knowledge.
+  stack: [RAG, Vector Database, LLM, Retrieval, Prompting]
+  link: https://github.com/LectureHubTeam/lecturehub-chatbox
+  linkText: Open repository
+  cover:
+  media: rag
+
+- id: codemath-solver
+  title: CodeMath Solver
+  kind: [application, engineering]
+  badges:
+    - {type: application, label: Application}
+    - {type: engineering, label: Engineering}
+  org: Personal project
+  date: Apr 2025 - Present
+  summary: Autonomous problem-solving agent for programming challenges, built with a multi-stage prompt engineering framework and Selenium automation.
+  highlights:
+    - Designed a multi-stage prompt framework for accurate solution generation and stable output formatting.
+    - Built resilient Selenium automation with exception handling for long-running operation.
+    - Reached #1 rank on codemath.vn within 24 hours of deployment.
+  stack: [LLM, Prompt Engineering, Selenium, Automation, Python]
+  link: https://github.com/LectureHubTeam/codemath-solver
+  linkText: Open repository
+  cover:
+  media: agent
+
+- id: programming-educator
+  title: Programming Educator & Mentor
+  kind: [education, application]
+  badges:
+    - {type: education, label: Education}
+    - {type: application, label: Mentoring}
+  org: Freelance
+  date: May 2024 - Present
+  summary: Programming curriculum for primary and secondary students, covering Scratch, Python, computational thinking, and competition preparation.
+  highlights:
+    - Simplified Python syntax and core algorithms into interactive, age-appropriate lessons.
+    - Designed exercises to build logical thinking and problem-solving habits.
+    - Mentored students toward strong results in the Tin Hoc Tre competition.
+  stack: [Python, Scratch, Algorithms, Curriculum Design, Mentoring]
+  link:
+  linkText:
+  cover:
+  media: education
+
+- id: boom-mail
+  title: Boom Mail
+  kind: [engineering, application]
+  badges:
+    - {type: engineering, label: Engineering}
+    - {type: application, label: Backend}
+  org: Freelance
+  date: Dec 2022 - Jul 2023
+  summary: Backend service for email automation with Python, MySQL, API design, and frontend integration requirements.
+  highlights:
+    - Designed and implemented backend APIs for an email automation workflow.
+    - Collaborated with frontend developers through clear integration requirements.
+    - Gained deeper experience in backend-to-frontend architecture and delivery.
+  stack: [Python, MySQL, Backend, API Design, Integration]
+  link: https://github.com/KudoKhang/boom_mail
+  linkText: Open repository
+  cover:
+  media: email
+
+- id: license-plate-recognition
+  title: License Plate Recognition
+  kind: [research, application]
+  badges:
+    - {type: research, label: Research}
+    - {type: application, label: Deployment}
+  org: Freelance
+  date: Jul 2022 - Sep 2022
+  summary: Factory-deployed license plate recognition system with Dockerized API, 97% private-test accuracy, and ATiGB 2022 publication.
+  highlights:
+    - Developed and deployed an automated license plate recognition system in a factory setting.
+    - Reached 97% accuracy on a private real-world test dataset.
+    - Built Docker image and API for convenient deployment.
+    - Published the research in the ATiGB 2022 conference proceedings.
+  stack: [CNN, OCR, Docker, API, Computer Vision]
+  link: https://github.com/KudoKhang/LPR
+  linkText: Open repository
+  cover:
+  media: plate
+
+- id: product-classification
+  title: Product Classification System
+  kind: [research, engineering]
+  badges:
+    - {type: research, label: Research}
+    - {type: engineering, label: Hardware}
+  org: University project
+  date: May 2022
+  summary: Graduation thesis on orange classification using deep learning, Jetson Nano video processing, conveyor design, and robotic arms.
+  highlights:
+    - Designed a conveyor system and two robotic arms for product classification.
+    - Used Jetson Nano to process camera video and control robotic arms.
+    - Achieved A+ in the graduation thesis defense, the highest score in class.
+  stack: [Jetson Nano, Deep Learning, Robotics, Computer Vision, Embedded AI]
+  link:
+  linkText:
+  cover:
+  media: classifier
