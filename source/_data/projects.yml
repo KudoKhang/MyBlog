@@ -85,6 +85,7 @@
     - {type: engineering, label: Engineering}
   org: LectureHub feature
   date: PoC
+  metaOrder: [org, date]
   summary: RAG-based chatbot for in-depth conversational queries about programming problems, using a pre-computed vector database to reduce hallucinations.
   highlights:
     - Designed a complete RAG pipeline backed by a pre-computed vector database.

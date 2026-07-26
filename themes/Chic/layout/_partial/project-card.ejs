@@ -1,6 +1,7 @@
 <%
 var kindAttr = project.kind.join(' ');
 var modalMeta = [project.badges[0].label, project.org, project.date];
+var metaOrder = project.metaOrder || ['date', 'org'];
 var modalData = {
     title: project.title,
     meta: modalMeta,
@@ -27,8 +28,9 @@ var modalData = {
 <h2><%- project.title %></h2>
 <p><%= project.summary %></p>
 <div class="showcase-meta">
-<span><%= project.date %></span>
-<span><%= project.org %></span>
+<% metaOrder.forEach(function(field){ %>
+<span><%= project[field] %></span>
+<% }); %>
 </div>
 <div class="showcase-stack">
 <% project.stack.forEach(function(item){ %>
