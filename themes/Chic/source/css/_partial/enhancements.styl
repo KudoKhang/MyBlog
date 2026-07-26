@@ -1,0 +1,342 @@
+/**
+ * Blog UX Enhancements Styles - Phase 1
+ * Minimalist design following blog's aesthetic
+ */
+
+// ==================== READING PROGRESS BAR ====================
+.reading-progress
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 3px
+  background: transparent
+  z-index: 9999
+  pointer-events: none // Quan trọng: Đảm bảo không chặn click
+
+.reading-progress-fill
+  height: 100%
+  width: 0%
+  background: var(--primary-color, #ff6b6b)
+  transition: width 0.1s ease-out
+  box-shadow: 0 0 8px rgba(255, 107, 107, 0.5)
+  pointer-events: none
+
+// Dark theme support
+.dark-theme .reading-progress-fill
+  background: var(--primary-color-dark, #4ecdc4)
+  box-shadow: 0 0 8px rgba(78, 205, 196, 0.5)
+
+// ==================== COPY CODE BUTTON ====================
+.copy-code-btn
+  position: absolute
+  top: 8px
+  right: 8px
+  padding: 6px 10px
+  background: rgba(255, 255, 255, 0.1)
+  border: 1px solid rgba(255, 255, 255, 0.2)
+  border-radius: 4px
+  color: rgba(255, 255, 255, 0.8)
+  cursor: pointer
+  opacity: 0
+  transition: all 0.2s ease
+  font-size: 14px
+  display: flex
+  align-items: center
+  gap: 4px
+  backdrop-filter: blur(4px)
+  z-index: 10
+
+  &:hover
+    background: rgba(255, 255, 255, 0.2)
+    border-color: rgba(255, 255, 255, 0.3)
+    color: rgba(255, 255, 255, 1)
+    transform: translateY(-1px)
+
+  &:active
+    transform: translateY(0)
+
+  &.copied
+    background: rgba(78, 205, 196, 0.2)
+    border-color: rgba(78, 205, 196, 0.4)
+    color: #4ecdc4
+
+  svg
+    width: 16px
+    height: 16px
+
+// Show button on hover
+pre:hover .copy-code-btn,
+.highlight:hover .copy-code-btn
+  opacity: 1
+
+// Touch devices - always show
+@media (hover: none)
+  .copy-code-btn
+    opacity: 0.7
+
+// ==================== BACK TO TOP BUTTON ====================
+.back-to-top
+  position: fixed
+  bottom: 32px
+  right: 32px
+  width: 48px
+  height: 48px
+  background: rgba(255, 255, 255, 0.9)
+  border: 1px solid rgba(0, 0, 0, 0.1)
+  border-radius: 50%
+  color: #333
+  cursor: pointer
+  opacity: 0
+  visibility: hidden
+  pointer-events: none // Chặn tương tác khi ẩn
+  transform: translateY(20px) scale(0.8)
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15)
+  z-index: 1000
+  display: flex
+  align-items: center
+  justify-content: center
+
+  &:hover
+    background: rgba(255, 255, 255, 1)
+    transform: translateY(-2px) scale(1)
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2)
+
+  &:active
+    transform: translateY(0) scale(0.95)
+
+  &.visible
+    opacity: 1
+    visibility: visible
+    pointer-events: auto // Cho phép tương tác khi hiện
+    transform: translateY(0) scale(1)
+
+  svg
+    width: 20px
+    height: 20px
+
+// Dark theme support
+.dark-theme .back-to-top
+  background: rgba(45, 45, 45, 0.9)
+  border-color: rgba(255, 255, 255, 0.1)
+  color: #fff
+
+  &:hover
+    background: rgba(55, 55, 55, 1)
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4)
+
+// Mobile adjustments
+@media screen and (max-width: 768px)
+  .back-to-top
+    bottom: 20px
+    right: 20px
+    width: 44px
+    height: 44px
+
+// ==================== READING TIME ESTIMATE ====================
+.reading-time
+  display: inline-block
+  margin-left: 8px
+  padding: 2px 8px
+  background: rgba(255, 107, 107, 0.1)
+  border-radius: 4px
+  font-size: 0.85em
+  color: #ff6b6b
+  font-weight: 500
+
+  &::before
+    content: "📖 "
+    margin-right: 2px
+// ==================== PROJECT SHOWCASE ====================
+.projects-section
+  margin-top: 3rem
+  border-top: 1px solid rgba(0, 0, 0, 0.1)
+  padding-top: 2rem
+
+.dark-theme .projects-section
+  border-top-color: rgba(255, 255, 255, 0.1)
+
+.section-title
+  font-size: 1.8rem
+  font-weight: 700
+  margin-bottom: 2rem
+  text-align: center
+  position: relative
+  display: block
+
+  &::after
+    content: ''
+    position: absolute
+    bottom: -10px
+    left: 50%
+    transform: translateX(-50%)
+    width: 40px
+    height: 3px
+    background: var(--primary-color, #ff6b6b)
+
+.project-grid
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
+  gap: 2rem
+  padding: 1rem 0
+
+.project-card
+  background: rgba(255, 255, 255, 0.03)
+  border: 2px solid rgba(0, 0, 0, 0.05)
+  border-radius: 8px
+  padding: 1.5rem
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+  display: flex
+  flex-direction: column
+  height: 100%
+  position: relative
+  overflow: hidden
+
+  &:hover
+    transform: translateY(-5px)
+    border-color: var(--primary-color, #ff6b6b)
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05)
+
+  .project-header
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin-bottom: 1rem
+
+    .project-icon
+      font-size: 1.5rem
+      opacity: 0.8
+
+  .project-title
+    margin: 0
+    font-size: 1.25rem
+    font-weight: 600
+    color: inherit
+
+  .project-description
+    font-size: 0.95rem
+    line-height: 1.6
+    margin: 1rem 0
+    opacity: 0.8
+    flex-grow: 1
+
+  .project-tech
+    display: flex
+    flex-wrap: wrap
+    gap: 0.5rem
+    margin-bottom: 1.5rem
+
+    .tech-tag
+      font-size: 0.75rem
+      padding: 0.2rem 0.6rem
+      background: rgba(0, 0, 0, 0.05)
+      border-radius: 4px
+      font-weight: 500
+
+  .project-links
+    display: flex
+    gap: 1rem
+
+    a
+      font-size: 0.9rem
+      font-weight: 600
+      text-decoration: none
+      display: flex
+      align-items: center
+      gap: 0.3rem
+      color: var(--primary-color, #ff6b6b)
+
+      &:hover
+        text-decoration: underline
+
+.dark-theme
+  .project-card
+    background: rgba(255, 255, 255, 0.02)
+    border-color: rgba(255, 255, 255, 0.05)
+
+    &:hover
+      border-color: var(--primary-color-dark, #4ecdc4)
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3)
+      background: rgba(255, 255, 255, 0.04)
+
+  .project-tech .tech-tag
+    background: rgba(255, 255, 255, 0.05)
+
+  .project-links a
+    color: var(--primary-color-dark, #4ecdc4)
+
+@media screen and (max-width: 600px)
+  .project-grid
+    grid-template-columns: 1fr
+
+// ==================== HOMEPAGE 3D ANIMATION ====================
+.floating-shapes-canvas
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  pointer-events: none
+  z-index: 0
+  opacity: 0.68
+
+.wrapper
+  position: relative
+  z-index: 1
+
+.profile-container
+  position: relative
+  min-height: 72vh
+
+  .intro
+    position: relative
+    z-index: 1
+
+// Reduce animation on mobile for performance
+@media screen and (max-width: 768px)
+  .floating-shapes-canvas
+    opacity: 0.42
+
+// ==================== TYPING EFFECT ====================
+.typing-cursor
+  display: inline
+  font-weight: 400
+  animation: blink 1s infinite
+  color: var(--primary-color, #ff6b6b)
+
+@keyframes blink
+  0%, 49%
+    opacity: 1
+  50%, 100%
+    opacity: 0
+
+.dark-theme .typing-cursor
+  color: var(--primary-color-dark, #4ecdc4)
+
+// Ensure description has proper spacing during typing
+.profile-container .description
+  line-height: 1.6
+  transition: opacity 0.3s ease
+.dark-theme .reading-time
+  background: rgba(78, 205, 196, 0.1)
+  color: #4ecdc4
+
+// ==================== ACCESSIBILITY ====================
+// Respect user's motion preferences
+@media (prefers-reduced-motion: reduce)
+  .reading-progress-fill,
+  .copy-code-btn,
+  .back-to-top
+    transition: none
+
+  .back-to-top:hover
+    transform: none
+
+// High contrast mode support
+@media (prefers-contrast: high)
+  .copy-code-btn
+    border-width: 2px
+
+  .back-to-top
+    border-width: 2px

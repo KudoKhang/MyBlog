@@ -1,0 +1,16 @@
+<div class="container">
+    <%
+    var pagePath = page.path || '';
+    var pageClass = '';
+    if (pagePath.indexOf('projects/') === 0) pageClass += ' projects-layout';
+    if (pagePath.indexOf('about/') === 0) pageClass += ' about-layout';
+    %>
+    <article class="post-wrap page<%- pageClass %>">
+        <% if(theme.page_title_enable && pageClass.indexOf('about-layout') === -1){ %>
+        <h2 class="post-title"><%- page.title %></h2>
+        <% } %>
+        <section class="post-content">
+            <%- page.content %>
+        </section>
+    </article>
+</div>
