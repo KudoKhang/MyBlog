@@ -52,7 +52,23 @@ Phía dưới `---` là nơi bạn viết nội dung bài bằng cú pháp Markd
 ![Mô tả ảnh](/images/ten-anh.png)
 ```
 
-## 4. Xem trước (Preview)
+## 4. Ảnh cover cho bài viết (tuỳ chọn)
+
+Nếu muốn bài viết có ảnh riêng khi share lên Facebook/Zalo/Slack (thay vì dùng ảnh mặc định của site), thêm field `cover` vào front-matter:
+
+```yaml
+---
+title: Hướng dẫn học ReactJS cơ bản
+date: 2023-10-27 10:00:00
+tags: [ReactJS, JavaScript, Frontend]
+categories: Programming
+cover: /images/reactjs-cover.jpg
+---
+```
+
+Ảnh cover nên đặt trong `source/images/` giống ảnh chèn trong bài viết.
+
+## 5. Xem trước (Preview)
 
 Để xem bài viết hiển thị thế nào trên web local:
 

@@ -12,6 +12,11 @@ nav:
 # favicon
 favicon: /favicon.ico
 
+# Open Graph / social preview
+## Default image used when a post doesn't set its own `cover:` front-matter field.
+## PLACEHOLDER — replace source/images/og-banner.jpg with a real banner when ready.
+og_image: /images/og-banner.jpg
+
 # Profile
 nickname: Kudo Khang
 
