@@ -1,3 +1,23 @@
+# Each entry is one project shown on /projects/.
+#
+# kind: filter-button categories this project matches (data-project-kind).
+#       Independent of `badges` — a project can filter under a category
+#       with no matching visible badge.
+# badges: displayed badge chips [{type, label}]. `type` selects the CSS
+#         color class (badge-<type>); `label` is free text and does not
+#         have to match `type` or `kind` (e.g. type: application can be
+#         labeled "Mentoring" or "Backend").
+# stack: shown on both the card and the modal — one list, no duplication.
+# cover: optional real photo path (e.g. /images/projects/my-project.jpg).
+#        Leave blank to use the `media` fallback illustration below.
+# media: id of a hand-built CSS illustration (see
+#        themes/Chic/layout/_partial/project-media.ejs for the known ids).
+#        Only used when `cover` is blank. Leave both blank for a generic
+#        initials-on-gradient fallback.
+# metaOrder: optional override for the card's two meta spans, e.g.
+#            [org, date] instead of the default [date, org]. Only needed
+#            if a specific project's original copy read in that order.
+
 - id: soccer-match-analysis
   title: Soccer Match Analysis
   kind: [application, engineering]

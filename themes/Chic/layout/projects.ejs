@@ -1,8 +1,16 @@
 <%
 var kindOrder = ['research', 'application', 'engineering', 'education'];
 var kindLabels = {research: 'Research', application: 'Application', engineering: 'Engineering', education: 'Education'};
-var kinds = kindOrder.filter(function(k){
-    return site.data.projects.some(function(project){ return project.kind.indexOf(k) !== -1; });
+var allKinds = [];
+site.data.projects.forEach(function(project){
+    project.kind.forEach(function(k){
+        if (allKinds.indexOf(k) === -1) allKinds.push(k);
+    });
+});
+var kinds = kindOrder.filter(function(k){ return allKinds.indexOf(k) !== -1; })
+    .concat(allKinds.filter(function(k){ return kindOrder.indexOf(k) === -1; }));
+kinds.forEach(function(k){
+    if (!kindLabels[k]) kindLabels[k] = k.charAt(0).toUpperCase() + k.slice(1);
 });
 %>
 <div class="container">
