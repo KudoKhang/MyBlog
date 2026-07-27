@@ -1,6 +1,7 @@
 ---
 title: About
 date: 2022-08-30 23:48:36
+description: AI Engineer working across computer vision, deep learning, and LLM systems — from research to production. My story, publications, and how to reach me.
 ---
 
 <div class="about-page">
@@ -11,6 +12,7 @@ date: 2022-08-30 23:48:36
 <div class="about-actions">
 <a href="#publications-title">Publications</a>
 <a href="/projects/">Projects</a>
+<a href="#contact-title">Contact</a>
 <a href="https://github.com/KudoKhang" target="_blank" rel="noopener">Github</a>
 </div>
 </section>
@@ -148,6 +150,27 @@ date: 2022-08-30 23:48:36
 </div>
 </div>
 </article>
+</div>
+</section>
+<section class="about-contact about-reveal" aria-labelledby="contact-title">
+<div class="section-heading">
+<p class="about-kicker">Contact</p>
+<h2 id="contact-title">Let's talk</h2>
+<p>I am open to collaboration on applied AI, research, consulting, and teaching. LinkedIn is the fastest way to reach me.</p>
+</div>
+<div class="contact-links">
+<a class="contact-link" href="https://www.linkedin.com/in/khangnghia/" target="_blank" rel="noopener">
+<span class="contact-label">LinkedIn</span>
+<span class="contact-value">in/khangnghia</span>
+</a>
+<a class="contact-link" href="https://github.com/KudoKhang" target="_blank" rel="noopener">
+<span class="contact-label">GitHub</span>
+<span class="contact-value">@KudoKhang</span>
+</a>
+<a class="contact-link" href="https://kudokhang.github.io/CurriculumVitae/" target="_blank" rel="noopener">
+<span class="contact-label">Résumé</span>
+<span class="contact-value">Full CV</span>
+</a>
 </div>
 </section>
 </div>

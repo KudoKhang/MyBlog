@@ -8,8 +8,13 @@
 <% if(config.subtitle){ %>
     <meta name="subtitle" content="<%- config.subtitle %>">
 <% } %>
-<% if(config.description){ %>
-    <meta name="description" content="<%- config.description %>">
+<%
+// A page or post may set its own `description:` in front-matter; the site-wide
+// description is only the fallback.
+var pageDescription = page.description || config.description || '';
+%>
+<% if(pageDescription){ %>
+    <meta name="description" content="<%= pageDescription %>">
 <% } %>
 <% if(config.keywords){ %>
     <meta name="keywords" content="<%- config.keywords %>">
@@ -36,7 +41,7 @@ if (is_archive()){
 <%
 var ogType = is_post() ? 'article' : 'website';
 var ogTitle = title ? (title + ' | ' + config.title) : config.title;
-var ogDescription = config.description || '';
+var ogDescription = pageDescription;
 var ogImage = full_url_for(theme.og_image);
 if (is_post() && page.cover) {
     ogImage = full_url_for(page.cover);
