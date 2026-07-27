@@ -720,9 +720,12 @@ header button.toggleBtn:focus-visible
   background rgba(255, 255, 255, 0.045)
   box-shadow none
 
+// Cover photos are authored 16:9, so the media band holds that ratio at every
+// width. Nothing inside it is in normal flow, so the ratio alone sets the
+// height and photo cards stay aligned with CSS-illustration cards.
 .showcase-media
   position relative
-  min-height 190px
+  aspect-ratio 16 / 9
   overflow hidden
   border-bottom 1px solid rgba(22, 18, 9, 0.08)
   background #101419
@@ -734,9 +737,6 @@ header button.toggleBtn:focus-visible
     background radial-gradient(circle at 50% 45%, rgba(45, 150, 189, 0.32), transparent 35%), linear-gradient(120deg, transparent 20%, rgba(45, 150, 189, 0.16) 20.5%, transparent 21.2% 58%, rgba(45, 150, 189, 0.12) 58.5%, transparent 59.2%)
     opacity 0.8
 
-// Absolute so the photo fills the media band without contributing to its
-// height. Left in flow it sizes to its own aspect ratio and makes cards with
-// a cover photo taller than cards using a CSS illustration.
 .showcase-media img
   position absolute
   top 0
@@ -747,10 +747,11 @@ header button.toggleBtn:focus-visible
   display block
 
 .showcase-media .media-fallback
-  position relative
+  position absolute
+  top 0
+  left 0
   width 100%
   height 100%
-  min-height 190px
   display flex
   align-items center
   justify-content center
@@ -1611,9 +1612,6 @@ body.modal-open
     margin 0
     padding-left 14px
     padding-right 14px
-
-  .showcase-media
-    min-height 180px
 
   .showcase-body
     padding 18px
