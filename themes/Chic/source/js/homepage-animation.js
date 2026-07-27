@@ -1,6 +1,7 @@
 /**
  * Ambient background animation for homepage and listing pages.
- * Layered particles, geometric outlines, and subtle pointer parallax.
+ * A layered neural network that propagates activation signals across its
+ * layers, with subtle pointer parallax.
  */
 
 (function () {
@@ -31,8 +32,21 @@
         document.body.insertBefore(canvas, document.body.firstChild);
 
         const ctx = canvas.getContext('2d');
-        const particles = [];
-        const shapes = [];
+
+        // Node count per layer, tapering toward the output layer.
+        const DESKTOP_LAYERS = [5, 7, 7, 5, 3];
+        const MOBILE_LAYERS = [3, 4, 4, 2];
+
+        const SIGNAL_TRAVEL_FRAMES = 42;   // ~0.7s per hop at 60fps
+        const WAVE_INTERVAL_FRAMES = 120;  // a new wave roughly every 2s
+        const WAVE_SOURCE_COUNT = 2;       // input nodes lit per wave
+        const MAX_FANOUT = 2;              // downstream edges a node fires into
+        const EDGE_SPAN = 3;               // nodes in the next layer each node links to
+
+        const layers = [];
+        const edges = [];
+        let signals = [];
+
         const pointer = {
             x: window.innerWidth / 2,
             y: window.innerHeight / 2,
@@ -54,6 +68,186 @@
             return document.body.classList.contains('dark-theme') ? palette.dark : palette.light;
         }
 
+        class Neuron {
+            constructor(x, y) {
+                this.baseX = x;
+                this.baseY = y;
+                this.x = x;
+                this.y = y;
+                this.radius = Math.random() * 1.4 + 1.6;
+                this.depth = Math.random() * 0.8 + 0.2;
+                this.driftPhase = Math.random() * Math.PI * 2;
+                this.driftAmount = Math.random() * 7 + 4;
+                this.activation = 0;
+                this.outgoing = [];
+            }
+
+            update() {
+                this.driftPhase += 0.006;
+                this.x = this.baseX + Math.cos(this.driftPhase) * this.driftAmount * 0.6;
+                this.y = this.baseY + Math.sin(this.driftPhase) * this.driftAmount;
+
+                if (this.activation > 0) {
+                    this.activation = Math.max(0, this.activation - 0.014);
+                }
+            }
+
+            screenX() {
+                return this.x + (pointer.x - width / 2) * 0.02 * this.depth;
+            }
+
+            screenY() {
+                return this.y + (pointer.y - height / 2) * 0.02 * this.depth;
+            }
+
+            fire() {
+                this.activation = 1;
+
+                if (!this.outgoing.length) return;
+
+                const count = 1 + Math.floor(Math.random() * MAX_FANOUT);
+                pickRandom(this.outgoing, count).forEach((edge) => {
+                    signals.push(new Signal(edge));
+                });
+            }
+
+            draw(colors) {
+                const x = this.screenX();
+                const y = this.screenY();
+                const glow = this.activation;
+
+                if (glow > 0) {
+                    ctx.beginPath();
+                    ctx.fillStyle = hexToRgba(colors[1], glow * 0.15);
+                    ctx.arc(x, y, this.radius + 9 * glow, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                ctx.beginPath();
+                ctx.fillStyle = hexToRgba(colors[0], 0.18 + glow * 0.55);
+                ctx.arc(x, y, this.radius + glow * 1.6, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        class Signal {
+            constructor(edge) {
+                this.edge = edge;
+                this.progress = 0;
+            }
+
+            update() {
+                this.progress += 1 / SIGNAL_TRAVEL_FRAMES;
+                return this.progress < 1;
+            }
+
+            draw(colors) {
+                const from = this.edge.from;
+                const to = this.edge.to;
+                const ax = from.screenX();
+                const ay = from.screenY();
+                const bx = to.screenX();
+                const by = to.screenY();
+
+                const head = this.progress;
+                const tail = Math.max(0, head - 0.18);
+                const hx = ax + (bx - ax) * head;
+                const hy = ay + (by - ay) * head;
+                const tx = ax + (bx - ax) * tail;
+                const ty = ay + (by - ay) * tail;
+
+                // Fade in and out at the ends so signals emerge from and settle
+                // into their nodes instead of popping.
+                const fade = Math.sin(head * Math.PI);
+
+                const gradient = ctx.createLinearGradient(tx, ty, hx, hy);
+                gradient.addColorStop(0, hexToRgba(colors[1], 0));
+                gradient.addColorStop(1, hexToRgba(colors[1], 0.45 * fade));
+
+                ctx.beginPath();
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 1.6;
+                ctx.moveTo(tx, ty);
+                ctx.lineTo(hx, hy);
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.fillStyle = hexToRgba(colors[1], 0.7 * fade);
+                ctx.arc(hx, hy, 1.9, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function pickRandom(list, count) {
+            if (count >= list.length) return list.slice();
+
+            const pool = list.slice();
+            const picked = [];
+
+            for (let i = 0; i < count; i += 1) {
+                const index = Math.floor(Math.random() * pool.length);
+                picked.push(pool.splice(index, 1)[0]);
+            }
+
+            return picked;
+        }
+
+        function buildNetwork() {
+            layers.length = 0;
+            edges.length = 0;
+            signals = [];
+
+            const counts = width < 768 ? MOBILE_LAYERS : DESKTOP_LAYERS;
+            const marginX = width * 0.12;
+            const marginY = height * 0.16;
+            const usableWidth = width - marginX * 2;
+            const usableHeight = height - marginY * 2;
+
+            counts.forEach((count, layerIndex) => {
+                const layer = [];
+                const x = marginX + (usableWidth * layerIndex) / (counts.length - 1);
+                const spacing = usableHeight / Math.max(count - 1, 1);
+
+                for (let i = 0; i < count; i += 1) {
+                    const y = count === 1 ? height / 2 : marginY + spacing * i;
+                    const jitterX = (Math.random() - 0.5) * usableWidth * 0.05;
+                    const jitterY = (Math.random() - 0.5) * spacing * 0.45;
+                    layer.push(new Neuron(x + jitterX, y + jitterY));
+                }
+
+                layers.push(layer);
+            });
+
+            for (let i = 0; i < layers.length - 1; i += 1) {
+                const current = layers[i];
+                const next = layers[i + 1];
+
+                current.forEach((from, index) => {
+                    // Map this node onto the next layer by relative position and
+                    // link only to the few nodes around that point. Connecting to
+                    // every node instead produces steep full-height diagonals that
+                    // read as a random web rather than as ordered layers.
+                    const ratio = current.length === 1 ? 0.5 : index / (current.length - 1);
+                    const center = Math.round(ratio * (next.length - 1));
+                    const start = Math.max(0, center - Math.floor(EDGE_SPAN / 2));
+                    const end = Math.min(next.length - 1, start + EDGE_SPAN - 1);
+
+                    for (let j = start; j <= end; j += 1) {
+                        const edge = { from: from, to: next[j] };
+                        edges.push(edge);
+                        from.outgoing.push(edge);
+                    }
+                });
+            }
+        }
+
+        function emitWave() {
+            const inputLayer = layers[0];
+            if (!inputLayer || !inputLayer.length) return;
+
+            pickRandom(inputLayer, WAVE_SOURCE_COUNT).forEach((neuron) => neuron.fire());
+        }
+
         function resize() {
             width = window.innerWidth;
             height = window.innerHeight;
@@ -64,154 +258,22 @@
             canvas.style.height = height + 'px';
             ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
-            particles.length = 0;
-            shapes.length = 0;
-
-            const isMobile = width < 768;
-            const particleCount = isMobile ? 34 : 64;
-            const shapeCount = isMobile ? 7 : 15;
-
-            for (let i = 0; i < particleCount; i += 1) {
-                particles.push(new Particle());
-            }
-            for (let i = 0; i < shapeCount; i += 1) {
-                shapes.push(new Shape());
-            }
+            buildNetwork();
         }
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.28;
-                this.vy = (Math.random() - 0.5) * 0.28;
-                this.radius = Math.random() * 1.8 + 0.7;
-                this.depth = Math.random() * 0.8 + 0.2;
-                this.phase = Math.random() * Math.PI * 2;
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                this.phase += 0.018;
-
-                if (this.x < -20) this.x = width + 20;
-                if (this.x > width + 20) this.x = -20;
-                if (this.y < -20) this.y = height + 20;
-                if (this.y > height + 20) this.y = -20;
-            }
-
-            draw(colors) {
-                const parallaxX = (pointer.x - width / 2) * 0.018 * this.depth;
-                const parallaxY = (pointer.y - height / 2) * 0.018 * this.depth;
-                const pulse = 0.55 + Math.sin(this.phase) * 0.25;
-
-                ctx.beginPath();
-                ctx.fillStyle = hexToRgba(colors[0], 0.14 + pulse * 0.16);
-                ctx.arc(this.x + parallaxX, this.y + parallaxY, this.radius + pulse * 0.7, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        class Shape {
-            constructor() {
-                this.reset(true);
-            }
-
-            reset(initial) {
-                this.x = Math.random() * width;
-                this.y = initial ? Math.random() * height : height + 80;
-                this.size = Math.random() * 56 + 28;
-                this.vy = -(Math.random() * 0.22 + 0.08);
-                this.vx = (Math.random() - 0.5) * 0.18;
-                this.rotation = Math.random() * Math.PI * 2;
-                this.rotationSpeed = (Math.random() - 0.5) * 0.012;
-                this.type = Math.floor(Math.random() * 4);
-                this.depth = Math.random() * 0.9 + 0.2;
-                this.colorIndex = Math.floor(Math.random() * 4);
-            }
-
-            update() {
-                this.x += this.vx + Math.sin(frame * 0.006 + this.depth) * 0.05;
-                this.y += this.vy;
-                this.rotation += this.rotationSpeed;
-
-                if (this.y < -100 || this.x < -120 || this.x > width + 120) {
-                    this.reset(false);
-                }
-            }
-
-            draw(colors) {
-                const parallaxX = (pointer.x - width / 2) * 0.026 * this.depth;
-                const parallaxY = (pointer.y - height / 2) * 0.026 * this.depth;
-
-                ctx.save();
-                ctx.translate(this.x + parallaxX, this.y + parallaxY);
-                ctx.rotate(this.rotation);
-                ctx.lineWidth = 1.4;
-                ctx.strokeStyle = hexToRgba(colors[this.colorIndex], 0.13);
-                ctx.fillStyle = hexToRgba(colors[this.colorIndex], 0.024);
-
-                if (this.type === 0) {
-                    ctx.beginPath();
-                    ctx.arc(0, 0, this.size / 2, 0, Math.PI * 2);
-                    ctx.fill();
-                    ctx.stroke();
-                } else if (this.type === 1) {
-                    ctx.beginPath();
-                    ctx.moveTo(0, -this.size / 2);
-                    ctx.lineTo(this.size / 2, this.size / 2);
-                    ctx.lineTo(-this.size / 2, this.size / 2);
-                    ctx.closePath();
-                    ctx.fill();
-                    ctx.stroke();
-                } else if (this.type === 2) {
-                    const half = this.size / 2;
-                    ctx.strokeRect(-half, -half, this.size, this.size);
-                } else {
-                    drawHexagon(this.size / 2);
-                }
-
-                ctx.restore();
-            }
-        }
-
-        function drawHexagon(radius) {
+        function drawEdges(colors) {
+            // All edges share one path and one stroke — they are drawn at a
+            // single constant alpha, so batching keeps this to one draw call.
             ctx.beginPath();
-            for (let i = 0; i < 6; i += 1) {
-                const angle = Math.PI / 3 * i;
-                const x = Math.cos(angle) * radius;
-                const y = Math.sin(angle) * radius;
-                if (i === 0) ctx.moveTo(x, y);
-                else ctx.lineTo(x, y);
-            }
-            ctx.closePath();
-            ctx.fill();
+            ctx.strokeStyle = hexToRgba(colors[0], 0.055);
+            ctx.lineWidth = 1;
+
+            edges.forEach((edge) => {
+                ctx.moveTo(edge.from.screenX(), edge.from.screenY());
+                ctx.lineTo(edge.to.screenX(), edge.to.screenY());
+            });
+
             ctx.stroke();
-        }
-
-        function drawConnections(colors) {
-            const maxDistance = width < 768 ? 110 : 150;
-
-            for (let i = 0; i < particles.length; i += 1) {
-                for (let j = i + 1; j < particles.length; j += 1) {
-                    const a = particles[i];
-                    const b = particles[j];
-                    const dx = a.x - b.x;
-                    const dy = a.y - b.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance > maxDistance) continue;
-
-                    const opacity = (1 - distance / maxDistance) * 0.085;
-                    ctx.beginPath();
-                    ctx.strokeStyle = hexToRgba(colors[0], opacity);
-                    ctx.lineWidth = 1;
-                    ctx.moveTo(a.x, a.y);
-                    ctx.lineTo(b.x, b.y);
-                    ctx.stroke();
-                }
-            }
         }
 
         function drawGlow(colors) {
@@ -246,13 +308,27 @@
             const colors = themeColors();
 
             drawGlow(colors);
-            particles.forEach((particle) => particle.update());
-            drawConnections(colors);
-            particles.forEach((particle) => particle.draw(colors));
-            shapes.forEach((shape) => {
-                shape.update();
-                shape.draw(colors);
+
+            layers.forEach((layer) => layer.forEach((neuron) => neuron.update()));
+
+            if (frame % WAVE_INTERVAL_FRAMES === 0) emitWave();
+
+            // Split before reassigning: arrived signals fire their target node,
+            // and that push must land in the new array, not the one being replaced.
+            const travelling = [];
+            const arrived = [];
+
+            signals.forEach((signal) => {
+                if (signal.update()) travelling.push(signal);
+                else arrived.push(signal);
             });
+
+            signals = travelling;
+            arrived.forEach((signal) => signal.edge.to.fire());
+
+            drawEdges(colors);
+            signals.forEach((signal) => signal.draw(colors));
+            layers.forEach((layer) => layer.forEach((neuron) => neuron.draw(colors)));
 
             requestAnimationFrame(animate);
         }
@@ -265,6 +341,7 @@
         window.addEventListener('resize', resize);
 
         resize();
+        emitWave();
         animate();
     }
 

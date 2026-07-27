@@ -31,7 +31,9 @@ The blog belongs to an AI Engineer. The user wants the background to instead evo
 
 - **Layers:** 5 layers on desktop with a tapering node count of `5 → 7 → 7 → 5 → 3`; 4 layers with roughly half the nodes on mobile (viewport width < 768px). Layers are distributed horizontally across the full viewport width, with the first and last inset from the edges so nodes are never clipped.
 - **Node placement:** each node's base position comes from an even vertical distribution within its layer's column, plus a small random offset applied at build time, plus a slow continuous sine drift while animating. The randomness and drift are what keep the network from reading as a rigid, hand-drawn grid.
-- **Edges:** every node connects to every node in the next layer (fully connected). Edges are drawn once per frame at very low alpha (~0.05), just enough to suggest structure.
+- **Edges:** each node connects to the ~3 nodes nearest its own relative position in the next layer, rather than to all of them. Edges are drawn once per frame at very low alpha (~0.055), just enough to suggest structure.
+
+  This started out as a fully-connected design. Rendering it showed why that fails the goal: with 5–7 nodes per layer, full connectivity produces long, steep diagonals spanning the viewport's whole height, and the resulting criss-cross mesh reads as a random web — visually close to the particle animation being replaced, with the layer structure lost. Limiting each node to its nearest few successors keeps edges shallow and roughly horizontal, which is what makes the left-to-right layering legible while staying faint.
 
 ### Signal propagation
 
@@ -50,7 +52,7 @@ The `Particle` class, the `Shape` class, `drawHexagon`, and `drawConnections` (p
 
 ## Performance
 
-The current implementation runs an O(n²) proximity check every frame — 64 particles means ~2,016 distance computations per frame before anything is drawn. The layered network replaces this with a fixed edge list (~150 edges on desktop) plus a small number of in-flight signals, so the new version does strictly less per-frame work. Signal objects are created on activation and removed on arrival, keeping the active set small; the 1–2 downstream fan-out cap is what bounds it.
+The current implementation runs an O(n²) proximity check every frame — 64 particles means ~2,016 distance computations per frame before anything is drawn. The layered network replaces this with a fixed edge list (~66 edges on desktop, given the nearest-few connection rule) plus a small number of in-flight signals, so the new version does strictly less per-frame work. All edges share one path and one stroke call, since they render at a single constant alpha. Signal objects are created on activation and removed on arrival, keeping the active set small; the 1–2 downstream fan-out cap is what bounds it — measured peak is 17 concurrent signals.
 
 ## Testing / Verification
 
