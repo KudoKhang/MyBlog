@@ -35,7 +35,7 @@
   stack: [Computer Vision, Video Stitching, Camera Calibration, Object Detection, GUI]
   link: https://www.youtube.com/watch?v=ZNacjRtL9JQ
   linkText: Watch demo
-  cover:
+  cover: https://i.postimg.cc/SNdhRdSk/project-soccer-stitching-video.png
   media: video
 
 - id: lecturehub
@@ -54,7 +54,7 @@
   stack: [Full-stack, AWS, CI/CD, Product Engineering, Competitive Programming]
   link: https://www.lecturehub.tech/
   linkText: Open website
-  cover:
+  cover: https://i.postimg.cc/PJvY5yvZ/project-lecturehub.png
   media: lecturehub
 
 - id: api-long-running-tasks
@@ -74,7 +74,7 @@
   stack: [Microservices, GPU, CI/CD, Prometheus, Grafana, Sentry]
   link:
   linkText:
-  cover:
+  cover: https://i.postimg.cc/PJvY5yvC/project-api.png
   media: tasks
 
 - id: image-video-merging
@@ -94,7 +94,7 @@
   stack: [Deep Learning, Image Processing, MLOps, Docker, Monitoring]
   link:
   linkText:
-  cover:
+  cover: https://i.postimg.cc/NF2mjD2X/project-automatic-image-and-video-merging.png
   media: green
 
 - id: qa-chatbot
@@ -114,7 +114,7 @@
   stack: [RAG, Vector Database, LLM, Retrieval, Prompting]
   link: https://github.com/LectureHubTeam/lecturehub-chatbox
   linkText: Open repository
-  cover:
+  cover: https://i.postimg.cc/G3BbmV9p/project-rag.png
   media: rag
 
 - id: codemath-solver
@@ -129,11 +129,11 @@
   highlights:
     - Designed a multi-stage prompt framework for accurate solution generation and stable output formatting.
     - Built resilient Selenium automation with exception handling for long-running operation.
-    - Reached #1 rank on codemath.vn within 24 hours of deployment.
+    - Reached No.1 rank on codemath.vn within 24 hours of deployment.
   stack: [LLM, Prompt Engineering, Selenium, Automation, Python]
   link: https://github.com/LectureHubTeam/codemath-solver
   linkText: Open repository
-  cover:
+  cover: https://i.postimg.cc/Y99QJMpf/project-codemath-solver.png
   media: agent
 
 - id: programming-educator
@@ -152,27 +152,8 @@
   stack: [Python, Scratch, Algorithms, Curriculum Design, Mentoring]
   link:
   linkText:
-  cover:
+  cover: https://i.postimg.cc/3RR2PYKF/project-teaching-1.png
   media: education
-
-- id: boom-mail
-  title: Boom Mail
-  kind: [engineering, application]
-  badges:
-    - {type: engineering, label: Engineering}
-    - {type: application, label: Backend}
-  org: Freelance
-  date: Dec 2022 - Jul 2023
-  summary: Backend service for email automation with Python, MySQL, API design, and frontend integration requirements.
-  highlights:
-    - Designed and implemented backend APIs for an email automation workflow.
-    - Collaborated with frontend developers through clear integration requirements.
-    - Gained deeper experience in backend-to-frontend architecture and delivery.
-  stack: [Python, MySQL, Backend, API Design, Integration]
-  link: https://github.com/KudoKhang/boom_mail
-  linkText: Open repository
-  cover:
-  media: email
 
 - id: license-plate-recognition
   title: License Plate Recognition
@@ -191,7 +172,7 @@
   stack: [CNN, OCR, Docker, API, Computer Vision]
   link: https://github.com/KudoKhang/LPR
   linkText: Open repository
-  cover:
+  cover: https://i.postimg.cc/sXX5tsVJ/project-license-plate-recognition-2.png
   media: plate
 
 - id: product-classification
@@ -210,5 +191,5 @@
   stack: [Jetson Nano, Deep Learning, Robotics, Computer Vision, Embedded AI]
   link:
   linkText:
-  cover:
+  cover: https://i.postimg.cc/nr9Bh29D/project-classification-system.png
   media: classifier
